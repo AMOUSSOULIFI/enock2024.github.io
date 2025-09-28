@@ -1,0 +1,110 @@
+<script>
+// Vérification d'authentification sur toutes les pages
+const sessionData = JSON.parse(localStorage.getItem('sessionData'));
+
+if (!sessionData || !sessionData.isLoggedIn) {
+    window.location.href = 'index.html';
+} else {
+    const currentTime = new Date().getTime();
+    const sessionAge = currentTime - sessionData.loginTime;
+    
+    // Session expire après 10 minutes
+    if (sessionAge >= 10 * 60 * 1000) {
+        alert('Session expirée. Veuillez vous reconnecter.');
+        localStorage.removeItem('sessionData');
+        window.location.href = 'index.html';
+    }
+}
+</script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP1 - SCISS - WordPress</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if(localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="aps.html" class="nav-link">APs</a>
+            <a href="stages.html" class="nav-link">Stages</a>
+            <a href="cv.html" class="nav-link">CV</a>
+            <a href="veille.html" class="nav-link">Veille</a>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <a href="aps.html" class="back-button">← Retour aux APs</a>
+            
+            <div class="ap-header">
+                <div class="ap-badge">AP1</div>
+                <h1>SCISS - Installation WordPress</h1>
+                <p class="ap-date">Septembre - Octobre 2024</p>
+            </div>
+
+            <div class="ap-details-grid">
+                <div class="detail-section">
+                    <h2>Description de l'AP</h2>
+                    <p>Installation et configuration complète d'un site WordPress pour l'organisme SCISS. Mise en place de la maintenance et des procédures de sauvegarde pour assurer la pérennité du site.</p>
+                </div>
+
+                <div class="info-table">
+                    <div class="info-column">
+                        <h3>Outils utilisés</h3>
+                        <ul>
+                            <li>→ WordPress</li>
+                            <li>→ Hébergement web</li>
+                            <li>→ PHP/MySQL</li>
+                            <li>→ FileZilla</li>
+                            <li>→ cPanel</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-column">
+                        <h3>Compétences travaillées</h3>
+                        <ul>
+                            <li>→ Installation CMS</li>
+                            <li>→ Configuration serveur</li>
+                            <li>→ Maintenance site web</li>
+                            <li>→ Sauvegarde données</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-column">
+                        <h3>Mode de travail</h3>
+                        <p><strong>Individuel</strong></p>
+                        <p>Gestion complète du projet de A à Z</p>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h2>Documentation technique</h2>
+                    <p>Protocole d'installation WordPress complet incluant la maintenance et les procédures de sauvegarde automatisée.</p>
+                    <a href="#" class="doc-link">📄 Protocole d'installation</a>
+                    <a href="#" class="doc-link">🔧 Guide maintenance</a>
+                </div>
+
+                <div class="detail-section">
+                    <h2>Production en ligne</h2>
+                    <div class="production-links">
+                        <a href="#" class="prod-link">🌐 Page d'accueil</a>
+                        <a href="#" class="prod-link">⚙️ Page admin articles</a>
+                        <a href="#" class="prod-link">🖼️ Captures d'écran</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

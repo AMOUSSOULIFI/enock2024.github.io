@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BTS - Accueil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Section Login -->
+    <section id="login-section" class="login-container">
+        <div class="login-form">
+            <h1>Portfolio BTS</h1>
+            <p>Veuillez vous connecter</p>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Login" required>
+                <input type="password" id="password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+            </form>
+            <p class="login-info">Login: enock | Mot de passe: enock2000*</p>
+            <div id="login-error" class="error-message hidden"></div>
+        </div>
+    </section>
+
+    <!-- Contenu du portfolio (caché au début) -->
+    <div id="portfolio-content" class="hidden">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#accueil" class="nav-link">Accueil</a>
+                <a href="aps.html" class="nav-link">APs</a>
+                <a href="stages.html" class="nav-link">Stages</a>
+                <a href="cv.html" class="nav-link">CV</a>
+                <a href="veille.html" class="nav-link">Veille</a>
+                <button id="logout-btn" class="logout-btn">Déconnexion</button>
+            </div>
+        </nav>
+
+        <!-- Section Accueil -->
+        <section id="accueil" class="section active">
+            <div class="container">
+                <h1>Mon Portfolio BTS</h1>
+                <p>Bienvenue sur mon portfolio présentant mes réalisations professionnelles</p>
+                <div class="session-timer">
+                    <p>Session expirera dans : <span id="session-timer">10:00</span></p>
+                </div>
+                
+                <div class="quick-links">
+                    <a href="aps.html" class="quick-link">
+                        <h3>APs</h3>
+                        <p>5 réalisations</p>
+                    </a>
+                    <a href="stages.html" class="quick-link">
+                        <h3>Stages</h3>
+                        <p>2 expériences</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

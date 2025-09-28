@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP3 - Mairie de Pénestin - GED/NAS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        // Vérification d'authentification sur toutes les pages
+        const sessionData = JSON.parse(localStorage.getItem('sessionData'));
+
+        if (!sessionData || !sessionData.isLoggedIn) {
+            window.location.href = 'index.html';
+        } else {
+            const currentTime = new Date().getTime();
+            const sessionAge = currentTime - sessionData.loginTime;
+            
+            // Session expire après 10 minutes
+            if (sessionAge >= 10 * 60 * 1000) {
+                alert('Session expirée. Veuillez vous reconnecter.');
+                localStorage.removeItem('sessionData');
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="aps.html" class="nav-link">APs</a>
+            <a href="stages.html" class="nav-link">Stages</a>
+            <a href="cv.html" class="nav-link">CV</a>
+            <a href="veille.html" class="nav-link">Veille</a>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <a href="aps.html" class="back-button">← Retour aux APs</a>
+            
+            <div class="ap-header">
+                <div class="ap-badge">AP3</div>
+                <h1>Mairie de Pénestin - GED et NAS</h1>
+                <p class="ap-date">Janvier - Mars 2025</p>
+            </div>
+
+            <div class="ap-details-grid">
+                <div class="detail-section">
+                    <h2>Description de l'AP</h2>
+                    <p>Mise en place d'une solution de Gestion Électronique de Documents (GED) et configuration d'un serveur NAS pour la mairie de Pénestin. Organisation et sécurisation des documents administratifs.</p>
+                </div>
+
+                <div class="info-table">
+                    <div class="info-column">
+                        <h3>Outils utilisés</h3>
+                        <ul>
+                            <li>→ Solution GED</li>
+                            <li>→ Serveur NAS</li>
+                            <li>→ Réseau local</li>
+                            <li>→ Outils de sauvegarde</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-column">
+                        <h3>Compétences travaillées</h3>
+                        <ul>
+                            <li>→ Gestion documentaire</li>
+                            <li>→ Administration NAS</li>
+                            <li>→ Sécurité données</li>
+                            <li>→ Archivage numérique</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-column">
+                        <h3>Mode de travail</h3>
+                        <p><strong>En binôme</strong></p>
+                        <p>Collaboration sur l'analyse et la mise en œuvre</p>
+                    </div>
+                </div>
+
+                <!-- DOCUMENTATION TECHNIQUE -->
+                <div class="detail-section">
+                    <h2>Documentation technique</h2>
+                    <p>Documentation complète de la solution GED incluant les procédures d'utilisation et de maintenance.</p>
+                    
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showContent('documentation-ap3')">
+                            📄 Voir la documentation projet
+                        </button>
+                    </div>
+
+                    <div id="documentation-ap3-content" class="content-section hidden">
+                        <h3>Documentation GED et NAS</h3>
+                        
+                        <div class="documents-grid">
+                            <div class="doc-item">
+                                <h4>Documentation GED</h4>
+                                <a href="docs/ap3/Devis.pdf" class="doc-link" target="_blank">
+                                    📋 Ouvrir le PDF complet
+                                </a>
+                                <embed src="docs/ap3/Devis.pdf" width="100%" height="500px" type="application/pdf">
+                                <p class="pdf-download">
+                                    <a href="docs/ap3/Devis.pdf" download>
+                                        ⬇️ Télécharger le PDF
+                                    </a>
+                                </p>
+                            </div>
+                            
+                            <div class="doc-item">
+                                <h4>Manuel utilisateur</h4>
+                                <a href="docs/ap3/LOGICIEL DE PRISE EN MAIN A DISTANCE 1.pdf" class="doc-link" target="_blank">
+                                    📖 Ouvrir le manuel
+                                </a>
+                                <embed src="docs/ap3/LOGICIEL DE PRISE EN MAIN A DISTANCE 1.pdf" width="100%" height="500px" type="application/pdf">
+                                <p class="pdf-download">
+                                    <a href="docs/ap3/LOGICIEL DE PRISE EN MAIN A DISTANCE 1.pdf" download>
+                                        ⬇️ Télécharger le PDF
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTION EN LIGNE / PRÉSENTATION -->
+                <div class="detail-section">
+                    <h2>Production en ligne et Présentation</h2>
+                    <p>Visualisez les captures d'écran et éléments de présentation du projet.</p>
+                    
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showContent('presentation-ap3')">
+                            🎥 Présentation complète
+                        </button>
+                        <button class="action-btn" onclick="showContent('architecture-ap3')">
+                            💾 Architecture NAS
+                        </button>
+                        <button class="action-btn" onclick="showContent('interface-ged')">
+                            🖼️ Interface GED
+                        </button>
+                    </div>
+
+                    <!-- Section PRÉSENTATION COMPLÈTE -->
+                    <div id="presentation-ap3-content" class="content-section hidden">
+                        <h3>Présentation visuelle du projet</h3>
+                        <p>Captures d'écran complètes de la présentation AP3.</p>
+                        
+                        <div class="gallery-grid">
+                            <!-- Images de présentation AP3 -->
+                            <div class="gallery-item">
+                                <img src="images/ap3/1.png" alt="Slide 1 - Introduction" onclick="openModal(this)">
+                                <p>Slide 1 - Introduction</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/2.png" alt="Slide 2 - Contexte" onclick="openModal(this)">
+                                <p>Slide 2 - Contexte</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/3.png" alt="Slide 3 - Objectifs" onclick="openModal(this)">
+                                <p>Slide 3 - Objectifs</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/4.png" alt="Slide 4 - Architecture" onclick="openModal(this)">
+                                <p>Slide 4 - Architecture</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/5.png" alt="Slide 5 - Implémentation" onclick="openModal(this)">
+                                <p>Slide 5 - Implémentation</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/6.png" alt="Slide 6 - Résultats" onclick="openModal(this)">
+                                <p>Slide 6 - Résultats</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/7.png" alt="Slide 7 - Sécurité" onclick="openModal(this)">
+                                <p>Slide 7 - Sécurité</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/8.png" alt="Slide 8 - Monitoring" onclick="openModal(this)">
+                                <p>Slide 8 - Monitoring</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/9.png" alt="Slide 9 - Conclusion" onclick="openModal(this)">
+                                <p>Slide 9 - Conclusion</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section ARCHITECTURE NAS -->
+                    <div id="architecture-ap3-content" class="content-section hidden">
+                        <h3>Architecture NAS et infrastructure</h3>
+                        <p>Schémas et configurations du serveur NAS.</p>
+                        
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="images/ap3/4.png" alt="Architecture NAS" onclick="openModal(this)">
+                                <p>Architecture du serveur NAS</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/5.png" alt="Configuration réseau" onclick="openModal(this)">
+                                <p>Configuration réseau</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/7.png" alt="Schéma infrastructure" onclick="openModal(this)">
+                                <p>Schéma d'infrastructure</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section INTERFACE GED -->
+                    <div id="interface-ged-content" class="content-section hidden">
+                        <h3>Interface GED</h3>
+                        <p>Captures d'écran de l'interface de gestion documentaire.</p>
+                        
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="images/ap3/8.png" alt="Interface GED - Accueil" onclick="openModal(this)">
+                                <p>Interface principale</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap3/9.png" alt="Interface GED - Gestion documents" onclick="openModal(this)">
+                                <p>Gestion des documents</p>
+                            </div>
+                            
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour images en grand -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

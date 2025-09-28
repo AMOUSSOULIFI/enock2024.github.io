@@ -1,0 +1,107 @@
+<script>
+// Vérification d'authentification sur toutes les pages
+const sessionData = JSON.parse(localStorage.getItem('sessionData'));
+
+if (!sessionData || !sessionData.isLoggedIn) {
+    window.location.href = 'index.html';
+} else {
+    const currentTime = new Date().getTime();
+    const sessionAge = currentTime - sessionData.loginTime;
+    
+    // Session expire après 10 minutes
+    if (sessionAge >= 10 * 60 * 1000) {
+        alert('Session expirée. Veuillez vous reconnecter.');
+        localStorage.removeItem('sessionData');
+        window.location.href = 'index.html';
+    }
+}
+</script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP5 - Projet complémentaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if(localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="aps.html" class="nav-link">APs</a>
+            <a href="stages.html" class="nav-link">Stages</a>
+            <a href="cv.html" class="nav-link">CV</a>
+            <a href="veille.html" class="nav-link">Veille</a>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <a href="aps.html" class="back-button">← Retour aux APs</a>
+            
+            <div class="ap-header">
+                <div class="ap-badge">AP5</div>
+                <h1>Projet personnel ou stage</h1>
+                <p class="ap-date">À définir</p>
+            </div>
+
+            <div class="ap-details-grid">
+                <div class="detail-section">
+                    <h2>Description de l'AP</h2>
+                    <p>Projet complémentaire ou stage permettant d'approfondir les compétences acquises durant le BTS. Cette AP pourra être adaptée en fonction des opportunités et des centres d'intérêt.</p>
+                </div>
+
+                <div class="info-table">
+                    <div class="info-column">
+                        <h3>Outils utilisés</h3>
+                        <ul>
+                            <li>→ À définir</li>
+                            <li>→ Selon le projet</li>
+                            <li>→ Technologies choisies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-column">
+                        <h3>Compétences travaillées</h3>
+                        <ul>
+                            <li>→ Adaptation</li>
+                            <li>→ Autonomie</li>
+                            <li>→ Innovation</li>
+                            <li>→ Spécialisation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-column">
+                        <h3>Mode de travail</h3>
+                        <p><strong>À définir</strong></p>
+                        <p>Selon la nature du projet</p>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h2>Documentation technique</h2>
+                    <p>Documentation à produire en fonction du projet réalisé.</p>
+                    <a href="#" class="doc-link">📄 Documentation projet</a>
+                </div>
+
+                <div class="detail-section">
+                    <h2>Production en ligne</h2>
+                    <div class="production-links">
+                        <a href="#" class="prod-link">🌐 Projet final</a>
+                        <a href="#" class="prod-link">📊 Résultats</a>
+                        <a href="#" class="prod-link">🎥 Présentation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

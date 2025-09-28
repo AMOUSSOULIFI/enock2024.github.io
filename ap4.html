@@ -1,0 +1,246 @@
+<script>
+// Vérification d'authentification sur toutes les pages
+const sessionData = JSON.parse(localStorage.getItem('sessionData'));
+
+if (!sessionData || !sessionData.isLoggedIn) {
+    window.location.href = 'index.html';
+} else {
+    const currentTime = new Date().getTime();
+    const sessionAge = currentTime - sessionData.loginTime;
+    
+    // Session expire après 10 minutes
+    if (sessionAge >= 10 * 60 * 1000) {
+        alert('Session expirée. Veuillez vous reconnecter.');
+        localStorage.removeItem('sessionData');
+        window.location.href = 'index.html';
+    }
+}
+</script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP4 - Séparation services + Sécurité</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if(localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="aps.html" class="nav-link">APs</a>
+            <a href="stages.html" class="nav-link">Stages</a>
+            <a href="cv.html" class="nav-link">CV</a>
+            <a href="veille.html" class="nav-link">Veille</a>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <a href="aps.html" class="back-button">← Retour aux APs</a>
+            
+            <div class="ap-header">
+                <div class="ap-badge">AP4</div>
+                <h1>Séparation services + Sauvegarde + NAT</h1>
+                <p class="ap-date">Mars - Mai 2025</p>
+            </div>
+
+            <div class="ap-details-grid">
+                <div class="detail-section">
+                    <h2>Description de l'AP</h2>
+                    <p>Configuration avancée d'un firewall sous Debian avec séparation des services, mise en place de règles NAT et automatisation des sauvegardes. Renforcement de la sécurité réseau.</p>
+                </div>
+
+                <div class="info-table">
+                    <div class="info-column">
+                        <h3>Outils utilisés</h3>
+                        <ul>
+                            <li>→ Firewall</li>
+                            <li>→ Debian</li>
+                            <li>→ iptables</li>
+                            <li>→ Scripts automatisation</li>
+                            <li>→ Outils monitoring</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-column">
+                        <h3>Compétences travaillées</h3>
+                        <ul>
+                            <li>→ Sécurité réseau</li>
+                            <li>→ Administration firewall</li>
+                            <li>→ Configuration NAT</li>
+                            <li>→ Automatisation tâches</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-column">
+                        <h3>Mode de travail</h3>
+                        <p><strong>En binôme</strong></p>
+                        <p><strong></strong>Travail collaboratif sur la sécurité et l'automatisation</strong></p>
+                    </div>
+                </div>
+
+                <!-- DOCUMENTATION TECHNIQUE -->
+                <div class="detail-section">
+                    <h2>Documentation technique</h2>
+                    <p>Documentation complète du projet de sécurisation réseau.</p>
+                    
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showContent('documentation-ap4')">
+                            📄 Voir la documentation projet
+                        </button>
+                    </div>
+
+                    <div id="documentation-ap4-content" class="content-section hidden">
+                        <h3>Documentation OPENKM - Gestion des utilisateurs</h3>
+                        
+                        <div class="documents-grid">
+                            <div class="doc-item">
+                                <h4>Documentation OPENKM Utilisateurs</h4>
+                                <a href="docs/ap4/Documentation OPENKM Utilisateurs.pdf" class="doc-link" target="_blank">
+                                    📋 Ouvrir le PDF complet
+                                </a>
+                                <embed src="docs/ap4/Documentation OPENKM Utilisateurs.pdf" width="100%" height="500px" type="application/pdf">
+                                <p class="pdf-download">
+                                    <a href="docs/ap4/Documentation OPENKM Utilisateurs.pdf" download>
+                                        ⬇️ Télécharger le PDF
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTION EN LIGNE / PRÉSENTATION -->
+                <div class="detail-section">
+                    <h2>Production en ligne et Présentation</h2>
+                    <p>Visualisez les captures d'écran et éléments de présentation du projet.</p>
+                    
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showContent('presentation-ap4')">
+                            🎥 Présentation complète
+                        </button>
+                        <button class="action-btn" onclick="showContent('configurations')">
+                            ⚙️ Configurations
+                        </button>
+                        <button class="action-btn" onclick="showContent('resultats')">
+                            📊 Résultats
+                        </button>
+                    </div>
+
+                    <!-- Section PRÉSENTATION COMPLÈTE -->
+                    <div id="presentation-ap4-content" class="content-section hidden">
+                        <h3>Présentation visuelle du projet</h3>
+                        <p>Captures d'écran complètes de la présentation AP4.</p>
+                        
+                        <div class="gallery-grid">
+                            <!-- Images 1 à 9 -->
+                            <div class="gallery-item">
+                                <img src="images/ap4/1.png" alt="Slide 1 - Introduction" onclick="openModal(this)">
+                                <p>Slide 1 - Introduction</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap4/2.png" alt="Slide 2 - Contexte" onclick="openModal(this)">
+                                <p>Slide 2 - Contexte</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap4/3.png" alt="Slide 3 - Objectifs" onclick="openModal(this)">
+                                <p>Slide 3 - Objectifs</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap4/4.png" alt="Slide 4 - Architecture" onclick="openModal(this)">
+                                <p>Slide 4 - Architecture</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap4/5.png" alt="Slide 5 - Implémentation" onclick="openModal(this)">
+                                <p>Slide 5 - Implémentation</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap4/6.png" alt="Slide 6 - Résultats" onclick="openModal(this)">
+                                <p>Slide 6 - Résultats</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap4/7.png" alt="Slide 7 - Sécurité" onclick="openModal(this)">
+                                <p>Slide 7 - Sécurité</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap4/8.png" alt="Slide 8 - Monitoring" onclick="openModal(this)">
+                                <p>Slide 8 - Monitoring</p>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="images/ap4/9.png" alt="Slide 9 - Conclusion" onclick="openModal(this)">
+                                <p>Slide 9 - Conclusion</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section CONFIGURATIONS -->
+                    <div id="configurations-content" class="content-section hidden">
+                        <h3>Configurations techniques</h3>
+                        <p>Détails des configurations mises en place.</p>
+                        
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="images/ap4/4.png" alt="Configuration firewall" onclick="openModal(this)">
+                                <p>Configuration firewall</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/ap4/5.png" alt="Règles NAT" onclick="openModal(this)">
+                                <p>Règles NAT</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/ap4/7.png" alt="Paramètres sécurité" onclick="openModal(this)">
+                                <p>Paramètres sécurité</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section RÉSULTATS -->
+                    <div id="resultats-content" class="content-section hidden">
+                        <h3>Résultats et performances</h3>
+                        <p>Résultats obtenus et analyses des performances.</p>
+                        
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="images/ap4/1.png" alt="Résultats tests" onclick="openModal(this)">
+                                <p>Résultats des tests</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/ap4/2.png" alt="Monitoring performances" onclick="openModal(this)">
+                                <p>Monitoring performances</p>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/ap4/3.png" alt="Bilan final" onclick="openModal(this)">
+                                <p>Bilan final</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour images en grand -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
